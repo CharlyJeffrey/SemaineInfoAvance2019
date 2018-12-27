@@ -1,4 +1,4 @@
-#SuperClassBros
+# SuperClassBros
 
 ## Intérêt de l'activité
 Le but de cette activité est de familliariser les jeunes avec les concepts
@@ -50,3 +50,12 @@ et leur facilité; un jeu comme «Super Mario Bros» possède énormement de cla
 et il est donc facile de trouver de nouvelles hiérarchies à donner aux jeunes. 
 Il est également facile de raccourcir l'activité si les jeunes ont plus ou moins
 d'intérêt simplement en diminuant le nombre de classes donné aux jeunes.
+
+## Activité alternative: Class moi ça!
+Si les jeunes n'ont pas d'intérêt pour «classifier» un jeu video, changer la 
+thématique selon le goût de chaque jeunes. L'activité est réalisable peu importe
+leur goût. La hiérarchisation peu se faire sur un jeu de société, une série 
+de livres, un film, etc. Le principe reste le même, mais appliqué sur les sujets
+que les jeunes choississent.  
+  
+Désavantages: Aucun matériels de préparé. Débrouille toi!

@@ -3,35 +3,39 @@
 // Author      : Fermion
 // Version     :
 // Copyright   : Fermi and Beri Industry
-// Description : Version du jeux adapté pour la semaine «Informatique Avancé».
+// Description : Version du jeu adapté pour la semaine «Informatique Avancé».
 //============================================================================
 
 
 #include <iostream>
 #include "MasterMindGame.h"
 
-using namespace std;
+using namespace std;		// Simplifie l'écriture des fonctions cout, cin, etc.
 
-int essaieMax;
-
-// Fonction pour afficher l'introduction au jeu
-void PrintIntro();
-void PrintOutro();
-
-void PlayGame();
-
-string GetChoixValide();
-
+int essaieMax;				// Nombre d'essaies maximum
 string choixJoueur;
 
+void PrintIntro();			// Message de bienvenue
+void PrintOutro();			// Message d'au revoir
 
-MasterMindGame MMG;
+void PlayGame();			// Joue une  partie
 
-string allColors = MMG.GetAllColors();
+string GetChoixValide();	// Obtient un choix valide
+
+MasterMindGame MMG;			// Initialise une instance de jeu
+
+string allColors = MMG.GetAllColors();	// Obtient les couleurs valides
+
+
 
 int main() {
+	// Affiche le message d'introduction
 	PrintIntro();
+
+	// Joue une partie
 	PlayGame();
+
+	// Message d'au revoir
 	PrintOutro();
 	return 0;
 }
@@ -45,12 +49,16 @@ void PrintIntro() {
 
 void PrintOutro() { cout << "À une prochaine fois! Au revoir.\n\n" <<endl;}
 
+
+// Fonction pour jouer une partie du jeu
 void PlayGame() {
-	// Reset une partie
+	// Reset les variables
 	MMG.Reset();
+
+	// Obtient le nombre d'essaies maximum
 	essaieMax = MMG.GetMaxTries();
 
-	// Initialise le score
+	// Initialise le score du joeur
 	Score score;
 
 	// Boucle de jeu tant que le joueur n'a pas gagné/perdu
@@ -64,7 +72,6 @@ void PlayGame() {
 		cout << "Blacks: " << score.black << endl;
 		cout << endl;
 	}
-
 }
 
 // Fonction pour obtenir un choix valide du joueur.
@@ -76,6 +83,7 @@ string GetChoixValide() {
 
 	// Demande au jouer de faire un choix tant que le choix fait n'est pas valide
 	do {
+		// Obtient le nombre d'essaie du joueur
 		int essaie = MMG.GetCurrentTry();
 
 		cout << "Essaie " << essaie << " de " << MMG.GetMaxTries() << " essaies.\n";

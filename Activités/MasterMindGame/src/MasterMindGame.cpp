@@ -13,11 +13,11 @@ map<char, bool> map_color;
 // Construteurs de la classe
 MasterMindGame::MasterMindGame() { Reset(); }
 
-int MasterMindGame::GetCodeLength() {return codeCache.length();}
-int MasterMindGame::GetMaxTries() {return essaieMax;}
-int MasterMindGame::GetCurrentTry() {return essaie;}
-string MasterMindGame::GetAllColors() {return tabCouleurs;}
-bool MasterMindGame::isGameWon() {return gameWon;}
+int MasterMindGame::GetCodeLength() {return codeCache.length();}		// Obtient la longueur du code caché
+int MasterMindGame::GetMaxTries() {return essaieMax;}					// Obtient le nombre d'essaie maximum
+int MasterMindGame::GetCurrentTry() {return essaie;}					// Obtient le nombre d'essais actuel
+string MasterMindGame::GetAllColors() {return tabCouleurs;}				// Obtient les couleurs possibles
+bool MasterMindGame::isGameWon() {return gameWon;}						// Obtient l'état de la partie
 
 // Méthode pour obtenir le status du choix du joueur
 EChoixStatus MasterMindGame::GetStatusChoix(string choix) {
@@ -26,17 +26,22 @@ EChoixStatus MasterMindGame::GetStatusChoix(string choix) {
 
 	// Si le choix du joueur contient des caractères invalides
 	if (!isChoixValide(choix)) { return EChoixStatus::NOT_VALID_CARACTER; }
+
+	// Sinon choix valide
 	return EChoixStatus::OK;
 }
 
 
-// Méthode pour déterminer si le choix du joueur
+// Méthode pour déterminer si le choix du joueur est valide (contient des caractères valides)
 bool MasterMindGame::isChoixValide(string choix) {
 	// Boucle sur le choix pour vérifier si ses caracters sont valides
 	for (int i = 0; i < choix.length(); i++) {
+		// Obtient le ie charactère du choix
 		char c = choix[i];
+		// Vérifie si le caractère ne fait pas partie des couleurs valides
 		if (!map_color[c]) {return false;}
 	}
+	// Retourne vrai si tous les caractères sont valides
 	return true;
 }
 
