@@ -1,5 +1,12 @@
 # SuperClassBros
 
+## Description de l'activité
+Durant cette activité, les jeunes devront reconstruire la hiérarchie de classes
+du jeu [Super Mario Bros] à l'aide d'une image qui sera présentée à l'écran.
+L'activité peut se faire en équipe, ou seul si un jeune le souhaite, et sa
+durée est d'approximativement 30 minutes; le temps alloué peut facilement être
+modifié pour s'adapter à l'intérêt des jeunes.
+
 ## Intérêt de l'activité
 Le but de cette activité est de familliariser les jeunes avec les concepts
 d'héritage, de méthodes et d'attributs d'une classe et d'interaction entre

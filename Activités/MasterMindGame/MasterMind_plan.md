@@ -5,7 +5,7 @@
 * Une partie se joue sur un certain nombre de manches.
 * Deux joueurs jouent l'un contre l'autre (__codemaker__ & __codebreaker__).
 * Le __codemaker__ choisi sa chaine constituée de 4 couleurs parmis un choix de 6.
-* Le __codebreaker__ doit déterminer la chaine cachée en 8/10/12 essais.
+* Le __codebreaker__ doit déterminer la chaine cachée en 8/10/12 essaies.
 * Pour chaque tentative, le __codemaker__ donne le nombre de couleurs correctement
   dévinées (position+couleur) et le nombre de couleurs partiellement devinées 
   (couleur uniquement).
@@ -24,3 +24,5 @@
     Elle sera responsable de génèrer la chaine aléatoire, d'accepter et de vérifier
     la validité de la tentative du joueur et de lui retourner le score associé. 
     La classe peut être vu comme le _maître du jeu_ qui s'occupe du bon fonctionnement d'une partie.
+
+
