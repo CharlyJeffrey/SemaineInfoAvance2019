@@ -8,16 +8,16 @@
 
 #include "MasterMindGame.h"
 
-map<char, bool> map_color;
+#define LENGTH 4
 
 // Construteurs de la classe
 MasterMindGame::MasterMindGame() { Reset(); }
 
-int MasterMindGame::GetCodeLength() {return codeCache.length();}		// Obtient la longueur du code caché
-int MasterMindGame::GetMaxTries() {return essaieMax;}					// Obtient le nombre d'essaie maximum
-int MasterMindGame::GetCurrentTry() {return essaie;}					// Obtient le nombre d'essais actuel
-string MasterMindGame::GetAllColors() {return tabCouleurs;}				// Obtient les couleurs possibles
-bool MasterMindGame::isGameWon() {return gameWon;}						// Obtient l'état de la partie
+int MasterMindGame::GetCodeLength() {return codeCache.length();}	// Obtient la longueur du code caché
+int MasterMindGame::GetMaxTries() {return essaieMax;}				// Obtient le nombre d'essaie maximum
+int MasterMindGame::GetCurrentTry() {return essaie;}				// Obtient le nombre d'essais actuel
+string MasterMindGame::GetAllColors() {return tabCouleurs;}			// Obtient les couleurs possibles
+bool MasterMindGame::isGameWon() {return gameWon;}					// Obtient l'état de la partie
 
 // Méthode pour obtenir le status du choix du joueur
 EChoixStatus MasterMindGame::GetStatusChoix(string choix) {
@@ -53,20 +53,28 @@ Score MasterMindGame::UpdateScore(string choix) {
 	// Initialise le score
 	Score score;
 
+	bool notUsed[LENGTH];
+	for (int i = 0; i < LENGTH; i++) {
+		notUsed[i] = true;
+	}
+
+	// Vérifie le nombre de "white"
+	for (int i = 0; i < choix.length(); i++) {
+		if (choix[i] == codeCache[i]) {
+			score.white++;
+			notUsed[i] = false;
+		}
+	}
+
+
 	// Boucle sur le choix du joueur
 	for (int i = 0; i < choix.length(); i++) {
 		// Boucle sur le code cachée
 		for (int j = 0; j < choix.length(); j++) {
 			// Vérifie si les couleurs sont identiques
-			if (choix[i] == codeCache[j]) {
-				// Vérifie si elles sont à la meme position
-				if (i == j) {
-					// Augmente le compteur
-					score.white++;
-				} else {
-					// Augmente le compteur
-					score.black++;
-				}
+			if ((choix[i] == codeCache[j]) && notUsed[j]) {
+				score.black++;
+				notUsed[j] = false;
 			}
 		}
 	}
@@ -92,7 +100,7 @@ void MasterMindGame::Reset() {
 
 	// Initialise la longueur du code caché
 	// TODO: Variable selon la difficulté
-	codeCacheLongueur = 4;
+	codeCacheLongueur = LENGTH;
 
 	// Génère un nouveau code caché
 	codeCache = "";
@@ -100,6 +108,7 @@ void MasterMindGame::Reset() {
 		char c = tabCouleurs[rand() % 6];
 		codeCache.append(string(1, c));
 	}
+
 
 	// Initialise les attributs reliés aux essaies
 	essaie = 1;

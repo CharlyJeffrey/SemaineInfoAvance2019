@@ -14,8 +14,10 @@ using namespace std;
 
 // Structure pour contenirs les scores
 struct Score {
-	int white = 0;	// Bonne couleur, bonne place
-	int black = 0;	// Bonne couleur, mauvaise place
+	// Bonne couleur, bonne place
+	int white = 0;
+	// Bonne couleur, mauvaise place
+	int black = 0;
 };
 
 // Status possible pour un code fourni par le joueur
@@ -54,6 +56,8 @@ private:
 	bool gameWon;
 	int essaie;
 	int essaieMax;
+
+	map<char, bool> map_color;
 
 	char tabCouleurs[6] = {'r', 'b', 'v', 'j', 'm', 'c'};	// Tableau des couleurs permises
 

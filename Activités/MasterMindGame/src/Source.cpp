@@ -3,7 +3,7 @@
 // Author      : Fermion
 // Version     :
 // Copyright   : Fermi and Beri Industry
-// Description : Version du jeu adapté pour la semaine «Informatique Avancé».
+// Description : Version du jeux adapté pour la semaine «Informatique Avancé».
 //============================================================================
 
 
@@ -12,8 +12,8 @@
 
 using namespace std;		// Simplifie l'écriture des fonctions cout, cin, etc.
 
-int essaieMax;				// Nombre d'essaies maximum
-string choixJoueur;
+int essaie, essaieMax;		// Nombre d'essaies maximum par partie
+string choixJoueur;			// Choix du joueur
 
 void PrintIntro();			// Message de bienvenue
 void PrintOutro();			// Message d'au revoir
@@ -29,7 +29,7 @@ string allColors = MMG.GetAllColors();	// Obtient les couleurs valides
 
 
 int main() {
-	// Affiche le message d'introduction
+	// Affihce le message d'introduction
 	PrintIntro();
 
 	// Joue une partie
@@ -84,10 +84,10 @@ string GetChoixValide() {
 	// Demande au jouer de faire un choix tant que le choix fait n'est pas valide
 	do {
 		// Obtient le nombre d'essaie du joueur
-		int essaie = MMG.GetCurrentTry();
+		essaie = MMG.GetCurrentTry();
 
 		cout << "Essaie " << essaie << " de " << MMG.GetMaxTries() << " essaies.\n";
-		cout << "Entrez votre code de couleurs: ";
+		cout << "Entrez votre code de couleurs -" << allColors << "- : ";
 
 		// Obtient le choix du joueur
 		getline(cin, choix);
